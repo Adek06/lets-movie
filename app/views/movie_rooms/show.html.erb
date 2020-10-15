@@ -1,35 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-   <div class="row">
-      <div class="col-md-8">a</div>
-      <div class="col-md-4">
-        <div class="row">
-          <ul id="comments_id"></ul>
-        </div>
-        <div class="row">
-          <div data-controller="comment" data-comment-room-id=<%= @movie_room.id %>>
-            <textarea data-target="comment.context"  class="form-control" rows="3" name=textarea></textarea>
-            <button data-action="click->comment#send">
-              Send
-            </button>
-          </div>
-        </div>
-      </div>      
-   </div>
+<div  class="grid grid-rows-5 grid-flow-col">
+    <div class="row-span-5">
+      <video width="100%" height="100%" controls>
+        <source src="/videos/mhrise.mp4" type="video/mp4">
+        您的浏览器不支持Video标签。
+      </video>      
+    </div>
+    <div class="row-span-4 border border-teal-900">
+      <ul id="comments_id"></ul>
+    </div>
+    <div class="row-span-1 border border-teal-900">
+      <div data-controller="comment" data-comment-room-id=<%= @movie_room.id %>>
+        <textarea data-target="comment.context" placeholder="hey" class="text-grey-darkest flex-1 p-2 m-1 bg-transparent" name="tt">hello world</textarea>
+        <button data-action="click->comment#send">
+          Send
+        </button>
+      </div>
+    </div>
 </div>
-<div class="container">
-<%
-=begin%>
- <%=begin%>
- <p>
-  <strong>Title:</strong>
-  <%= @movie_room.title %>
-  <div></div>
-</p> 
-<%=end%> 
-<%
-=end%>
+
 
 <%= link_to 'Edit', edit_movie_room_path(@movie_room) %> |
 <%= link_to 'Back', movie_rooms_path %>
